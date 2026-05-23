@@ -9,6 +9,10 @@ const app = express();
 app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5174' }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Issue Tracker API is running!' });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/issues', issueRoutes);
 
